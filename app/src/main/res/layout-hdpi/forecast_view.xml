@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+
+        <RelativeLayout
+            android:id="@+id/rlMainContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/textView_day"
+                android:layout_width="wrap_content"
+                android:textStyle="bold"
+                android:textColor="@color/grey"
+                android:layout_height="wrap_content"
+                android:text="Day"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/txtDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="normal"
+                android:textColor="@color/grey"
+                android:layout_below="@+id/textView_day"
+                android:text="Description"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/textView_temp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="5dp"
+                android:textColor="@color/grey"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:text="TextView"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+
+            <ImageView
+                android:id="@+id/imageViewIcon"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_toStartOf="@+id/textView_temp"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <View
+                android:layout_marginTop="20dp"
+                android:layout_below="@+id/imageViewIcon"
+                android:textColor="@color/grey"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"/>
+
+
+        </RelativeLayout>
+
+
+
+
+
+</RelativeLayout>
