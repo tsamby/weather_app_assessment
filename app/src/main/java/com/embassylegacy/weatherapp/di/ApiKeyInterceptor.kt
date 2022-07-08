@@ -17,5 +17,3 @@ class ApiKeyInterceptor : Interceptor {
         return chain.proceed(request)
     }
 }
-
-//token -> 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

@@ -7,8 +7,10 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.embassylegacy.weatherapp.data.local.dao.CurrentWeatherDao
+import com.embassylegacy.weatherapp.data.local.dao.FavouriteLocationDao
 import com.embassylegacy.weatherapp.data.local.dao.ForecastWeatherDao
 import com.embassylegacy.weatherapp.model.CurrentWeatherResponse
+import com.embassylegacy.weatherapp.model.FavouriteLocation
 import com.embassylegacy.weatherapp.model.ForecastWeatherResponse
 
 /**
@@ -16,7 +18,7 @@ import com.embassylegacy.weatherapp.model.ForecastWeatherResponse
  * It provides DAO [CurrentWeatherResponseDao] by using method [getWeatherDatabase].
  */
 @Database(
-    entities = [CurrentWeatherResponse::class, ForecastWeatherResponse::class],
+    entities = [CurrentWeatherResponse::class, ForecastWeatherResponse::class, FavouriteLocation::class],
     version = DatabaseMigrations.DB_VERSION
 )
 @TypeConverters(TypeConverter::class)
@@ -27,6 +29,7 @@ abstract class WeatherDatabase : RoomDatabase() {
      */
     abstract fun currentWeatherDao(): CurrentWeatherDao
     abstract fun forecastWeatherDao() : ForecastWeatherDao
+    abstract fun favouriteLocationDao() :FavouriteLocationDao
 
     companion object {
         const val DB_NAME = "weather_database"

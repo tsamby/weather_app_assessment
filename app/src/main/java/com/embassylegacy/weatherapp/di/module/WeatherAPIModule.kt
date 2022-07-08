@@ -2,8 +2,12 @@ package com.embassylegacy.weatherapp.di.module
 
 
 
+import android.content.Context
 import androidx.viewbinding.BuildConfig
+import com.embassylegacy.weatherapp.data.local.WeatherDatabase
+import com.embassylegacy.weatherapp.data.local.dao.FavouriteLocationDao
 import com.embassylegacy.weatherapp.data.remote.api.WeatherApiService
+import com.embassylegacy.weatherapp.data.repository.FavouriteLocationRepository
 import com.embassylegacy.weatherapp.di.ApiKeyInterceptor
 import com.embassylegacy.weatherapp.di.qualifiers.ApiKeyInterceptorOkHttpClient
 
@@ -11,6 +15,7 @@ import com.squareup.moshi.Moshi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -93,5 +98,8 @@ class WeatherAPIModule {
         )
         .build()
         .create(WeatherApiService::class.java)
+
+
+
 
 }

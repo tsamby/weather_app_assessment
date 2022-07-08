@@ -10,36 +10,50 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.embassylegacy.weatherapp.R
-import com.embassylegacy.weatherapp.databinding.FragmentDashboardBinding
+import com.embassylegacy.weatherapp.databinding.FragmentSearchBinding
+import com.embassylegacy.weatherapp.model.FavouriteLocation
 import com.google.android.gms.common.api.Status
 import com.google.android.libraries.places.api.Places
 import com.google.android.libraries.places.api.model.Place
 import com.google.android.libraries.places.widget.AutocompleteSupportFragment
 import com.google.android.libraries.places.widget.listener.PlaceSelectionListener
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 
-
+@ExperimentalCoroutinesApi
+@AndroidEntryPoint
 class SearchFragment : Fragment() {
 
-    private lateinit var searchViewModel: SearchViewModel
-    private var _binding: FragmentDashboardBinding? = null
+    private val searchViewModel: SearchViewModel  by viewModels()
+
+
+
+
+    private var _binding: FragmentSearchBinding? = null
+
+    private lateinit var favouriteLocation : FavouriteLocation
 
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        searchViewModel =
-            ViewModelProvider(this).get(SearchViewModel::class.java)
+//        searchViewModel =
+//            ViewModelProvider(this)[SearchViewModel::class.java]
 
-        _binding = FragmentDashboardBinding.inflate(inflater, container, false)
+        _binding = FragmentSearchBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
 
@@ -96,17 +110,19 @@ class SearchFragment : Fragment() {
                 val address = place.address
                 val id = place.id.toString()
                 val latlng = place.latLng
-                val latitude = latlng?.latitude
-                val longitude = latlng?.longitude
+                val latitude = latlng!!.latitude
+                val longitude = latlng!!.longitude
+                val phoneNumber  = place.phoneNumber
 
                 val isOpenStatus: String = if (place.isOpen == true) {
                     "Open"
                 } else {
                     "Closed"
                 }
-
                 val rating = place.rating
                 val userRatings = place.userRatingsTotal
+
+                favouriteLocation = FavouriteLocation(id,name,address,longitude,latitude,phoneNumber,rating, userRatings)
 
                 textView!!.text = "ID: $id \nName: $name \nAddress: $address  \n" +
                         "Latitude, Longitude: $latitude , $longitude \nIs open: $isOpenStatus \n" +
@@ -123,12 +139,16 @@ class SearchFragment : Fragment() {
         })
 
 
-        // val textView: TextView = binding.textDashboard
-        searchViewModel.text.observe(viewLifecycleOwner, Observer {
-//            textView.text = it
-        })
+
+        binding.btnAddToFav.setOnClickListener {
+            searchViewModel.insert(favouriteLocation)
+        }
+
         return root
     }
+
+
+
 
     override fun onDestroyView() {
         super.onDestroyView()

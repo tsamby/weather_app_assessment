@@ -2,6 +2,7 @@ package com.embassylegacy.weatherapp.di.module
 
 import com.embassylegacy.weatherapp.data.repository.CurrentWeatherRepository
 import com.embassylegacy.weatherapp.data.repository.DefaultCurrentWeatherRepository
+import com.embassylegacy.weatherapp.data.repository.FavouriteLocationRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -19,4 +20,5 @@ abstract class WeatherRepositoryModule {
     @ActivityRetainedScoped
     @Binds
     abstract fun bindWeatherRepository(repository: DefaultCurrentWeatherRepository): CurrentWeatherRepository
+
 }
