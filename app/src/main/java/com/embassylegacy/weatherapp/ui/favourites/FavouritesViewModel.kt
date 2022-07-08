@@ -12,7 +12,7 @@ import javax.inject.Inject
 class FavouritesViewModel @Inject constructor(private val favouriteLocationRepository: FavouriteLocationRepository):
     ViewModel() {
 
-  //  val allFavouriteLocations: LiveData<List<FavouriteLocation>> = favouriteLocationRepository.allFavouriteLocations.asLiveData()
+    val allFavouriteLocations: LiveData<List<FavouriteLocation>> = favouriteLocationRepository.allFavouriteLocations.asLiveData()
 
     fun insert(favouriteLocation: FavouriteLocation) = viewModelScope.launch {
         favouriteLocationRepository.insertFavouriteLocation(favouriteLocation)
@@ -20,12 +20,3 @@ class FavouritesViewModel @Inject constructor(private val favouriteLocationRepos
 
 }
 
-//class WordViewModelFactory(private val repository: FavouriteLocationRepository) : ViewModelProvider.Factory {
-//    override fun <T : ViewModel> create(modelClass: Class<T>): T {
-//        if (modelClass.isAssignableFrom(FavouritesViewModel::class.java)) {
-//            @Suppress("UNCHECKED_CAST")
-//            return FavouritesViewModel(repository) as T
-//        }
-//        throw IllegalArgumentException("Unknown ViewModel class")
-//    }
-//}

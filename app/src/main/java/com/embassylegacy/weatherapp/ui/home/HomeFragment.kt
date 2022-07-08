@@ -7,13 +7,13 @@ import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.*
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.embassylegacy.weatherapp.R
 import com.embassylegacy.weatherapp.databinding.FragmentHomeBinding
@@ -51,7 +51,7 @@ class HomeFragment : Fragment() {
     ): View? {
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
-
+        setHasOptionsMenu(true)
         return binding.root
     }
 
@@ -320,6 +320,10 @@ class HomeFragment : Fragment() {
 
     companion object {
         const val ANIMATION_DURATION = 1000L
+    }
+
+    override fun onPrepareOptionsMenu(menu: Menu) {
+        menu.clear()
     }
 
 }

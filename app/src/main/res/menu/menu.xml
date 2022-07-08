@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/list_favourites"
+        android:title="@string/listview" />
+
+    <item
+        android:id="@+id/map_favourites"
+        android:title="@string/mapview" />
+
+</menu>

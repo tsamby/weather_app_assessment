@@ -6,6 +6,7 @@ import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
@@ -144,6 +145,8 @@ class SearchFragment : Fragment() {
             searchViewModel.insert(favouriteLocation)
         }
 
+        setHasOptionsMenu(true)
+
         return root
     }
 
@@ -153,5 +156,9 @@ class SearchFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun onPrepareOptionsMenu(menu: Menu) {
+        menu.clear()
     }
 }
