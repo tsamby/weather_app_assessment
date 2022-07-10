@@ -29,10 +29,33 @@
                 tools:text="@string/text_no_connectivity" />
         </LinearLayout>
 
+        <LinearLayout
+            android:id="@+id/ll1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10sp"
+            android:layout_marginRight="10sp">
+            <fragment android:id="@+id/autocomplete_fragment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:name="com.google.android.libraries.places.widget.AutocompleteSupportFragment"
+                />
+            <Button
+                android:id="@+id/btn_addToFav"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/tv1"
+                android:layout_marginBottom="32dp"
+                android:visibility="gone"
+                android:background="#000"
+                android:text="Add to Favourites" />
+        </LinearLayout>
+
 
 
         <LinearLayout
-            android:background="@drawable/bg_standard_card_view"
+
             android:layout_gravity="center"
             android:padding="10dp"
             android:layout_marginTop="50dp"

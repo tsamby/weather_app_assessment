@@ -8,9 +8,12 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
 import com.embassylegacy.weatherapp.R
+import com.embassylegacy.weatherapp.model.FavouriteLocation
 import com.embassylegacy.weatherapp.model.ForecastWeatherResponse
 import com.embassylegacy.weatherapp.utils.DateFormatter
+import com.embassylegacy.weatherapp.utils.WeatherIconManager
 import kotlin.math.roundToInt
 
 
@@ -38,14 +41,11 @@ class WeatherAdapter(val fiveDayWeatherList: ForecastWeatherResponse)
         holder.temp.text = (temp.toString() + "\u00B0")
         holder.description.text = fiveDayWeatherList.list!![i].weather!![0].description
 
-//        val weatherIcon: Int = WeatherIconManager.getIcon(
-//            fiveDayWeatherList.list[i].weather!![0].icon,
-//            fiveDayWeatherList.list[i].weather!![0].description
-//        )
-//        Glide.with(context).load(weatherIcon).into(weatherIconView)
-
-
-
+        val weatherIcon: Int = WeatherIconManager.getIcon(
+            fiveDayWeatherList.list[i].weather!![0].icon,
+            fiveDayWeatherList.list[i].weather!![0].description!!
+        )
+        holder.imageViewIcon.load(weatherIcon)
 
 
     }

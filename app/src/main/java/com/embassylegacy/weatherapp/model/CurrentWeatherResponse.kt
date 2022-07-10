@@ -40,3 +40,4 @@ data class CurrentWeatherResponse(
        const val CURRENT_WEATHER_ID = 0
    }
 }
+

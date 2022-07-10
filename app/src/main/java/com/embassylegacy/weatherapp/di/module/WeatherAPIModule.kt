@@ -85,9 +85,14 @@ class WeatherAPIModule {
             .client(okHttpClient)
             .build()
 
+    //https://androidexample365.com/automatically-filled-the-declared-non-null-field-is-missing-or-null-with-default-value/
+
 //    @Provides
 //    @Singleton
 //    fun provideApiService(retrofit: Retrofit): WeatherApiService = retrofit.create(WeatherApiService::class.java)
+
+
+
 
     @Singleton
     @Provides

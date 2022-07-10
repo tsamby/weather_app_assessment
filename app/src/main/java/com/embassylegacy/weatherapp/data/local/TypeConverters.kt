@@ -70,7 +70,7 @@ class TypeConverter {
             put("humidity", main.humidity)
             put("pressure", main.pressure)
            // put("seaLevel", main.seaLevel)
-            put("temp", main.temp)
+           // put("temp", main.temp)
           //  put("tempKf", main.tempKf)
             put("tempMax", main.tempMax)
           //  put("tempMin", main.tempMin)
@@ -85,7 +85,7 @@ class TypeConverter {
             json.get("humidity") as Int,
             json.get("pressure") as Int,
             //json.get("seaLevel") as Int,
-            json.get("temp") as Double,
+            //json.get("temp") as Double,
            // json.get("tempKf") as Double,
             json.get("tempMax") as Double,
           //  json.get("tempMin") as Double
@@ -99,10 +99,10 @@ class TypeConverter {
     fun fromSys(sys: Sys): String {
         return JSONObject().apply {
             put("country", sys.country)
-            put("id", sys.id)
+            //put("id", sys.id)
             put("sunrise", sys.sunrise)
             put("sunset", sys.sunset)
-            put("type", sys.type)
+            //put("type", sys.type)
         }.toString()
     }
 
@@ -110,10 +110,10 @@ class TypeConverter {
     fun toSys(sys: String): Sys {
         val json = JSONObject(sys)
         return Sys(json.get("country") as String,
-            json.get("id") as Int,
+           // json.get("id") as Int,
             json.get("sunrise") as Int,
             json.get("sunset") as Int,
-            json.get("type") as Int,
+            //json.get("type") as Int,
             //json.get("pod") as String
         )
     }

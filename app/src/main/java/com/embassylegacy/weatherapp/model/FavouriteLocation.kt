@@ -12,10 +12,12 @@ data class FavouriteLocation (
     val address : String,
     val longitude:Double,
     val latitude:Double,
-    @Nullable
-    val phoneNumber : String,
-    @Nullable
-    val rating : Double,
-    @Nullable
-    val userRatings : Int
+    val phoneNumber:String?,
+    val isOpen: String?,
+    val rating: Double?,
+    val userRating:Int?
+
+
+
+
 )

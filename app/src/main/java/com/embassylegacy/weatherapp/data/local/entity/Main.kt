@@ -16,7 +16,7 @@ data class Main(
     val pressure: Int?,
     //@Json(name = "sea_level")
     //val seaLevel: Int?,
-    val temp: Double?,
+    //val temp: Double?,
     //@Json(name = "temp_kf")
     //val tempKf: Double?,
     @Json(name = "temp_max")

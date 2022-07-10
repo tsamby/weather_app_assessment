@@ -4,9 +4,9 @@ import androidx.lifecycle.*
 import com.embassylegacy.weatherapp.data.repository.FavouriteLocationRepository
 import com.embassylegacy.weatherapp.model.FavouriteLocation
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+
 
 @HiltViewModel
 class FavouritesViewModel @Inject constructor(private val favouriteLocationRepository: FavouriteLocationRepository):
@@ -19,4 +19,3 @@ class FavouritesViewModel @Inject constructor(private val favouriteLocationRepos
     }
 
 }
-
