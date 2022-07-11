@@ -166,7 +166,7 @@ class HomeFragment : Fragment() {
                         binding.textLocation.text = state.data.name.toString()
                         binding.textDesc.text = state.data.weather?.get(0)?.description.toString()
                         if(state.data.weather?.get(0)?.description.toString().equals("clear sky")){
-                            binding.swipeRefreshLayout.setBackgroundResource(R.drawable.forest_sunny);
+                            binding.upperLayout?.setBackgroundResource(R.drawable.forest_sunny);
                         }
                         val temp = state.data.main?.tempMax?.let { it.roundToInt().toInt() }
                         binding.textTemp.text = (temp.toString() + "\u00B0")

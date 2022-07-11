@@ -12,104 +12,123 @@
         android:layout_height="match_parent">
 
         <LinearLayout
-            android:id="@+id/networkStatusLayout"
-            style="@style/StatusView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/colorStatusNotConnected">
-
-            <TextView
-                android:textAlignment="center"
-                android:id="@+id/textViewNetworkStatus"
-                style="@style/StatusTextView"
-                android:text="No Connection"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:text="@string/text_no_connectivity" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/ll1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="10sp"
-            android:layout_marginRight="10sp">
-            <fragment android:id="@+id/autocomplete_fragment"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:name="com.google.android.libraries.places.widget.AutocompleteSupportFragment"
-                />
-            <Button
-                android:id="@+id/btn_addToFav"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/tv1"
-                android:layout_marginBottom="32dp"
-                android:visibility="gone"
-                android:background="#000"
-                android:text="Add to Favourites" />
-        </LinearLayout>
-
-
-
-        <LinearLayout
-
-            android:layout_gravity="center"
-            android:padding="10dp"
-            android:layout_marginTop="50dp"
+            android:id="@+id/upperLayout"
             android:orientation="vertical"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <TextView
-                android:textStyle="normal"
-                android:id="@+id/text_location"
-                android:textColor="@color/black"
-                android:gravity="center"
-                android:textSize="24sp"
-                android:layout_gravity="center"
-                android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_height="fill_parent"
+            android:layout_width="match_parent">
+
+            <LinearLayout
+                android:id="@+id/networkStatusLayout"
+                style="@style/StatusView"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textAlignment="center"/>
+                android:background="@color/colorStatusNotConnected">
 
-            <TextView
-                android:id="@+id/text_temp"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:layout_width="wrap_content"
+                <TextView
+                    android:textAlignment="center"
+                    android:id="@+id/textViewNetworkStatus"
+                    style="@style/StatusTextView"
+                    android:text="No Connection"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="@string/text_no_connectivity" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll1"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:layout_gravity="center"
-                android:textColor="@color/black"
-                android:textAlignment="center"
-                android:textSize="60sp" />
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10sp"
+                android:layout_marginRight="10sp">
+                <fragment android:id="@+id/autocomplete_fragment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:name="com.google.android.libraries.places.widget.AutocompleteSupportFragment"
+                    />
+                <Button
+                    android:id="@+id/btn_addToFav"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/tv1"
+                    android:layout_marginBottom="32dp"
+                    android:visibility="gone"
+                    android:background="#000"
+                    android:text="Add to Favourites" />
+            </LinearLayout>
 
-            <TextView
-                android:id="@+id/text_desc"
-                android:gravity="center"
+
+
+            <LinearLayout
+
+                android:layout_gravity="center"
+                android:padding="10dp"
+                android:layout_marginTop="50dp"
+                android:orientation="vertical"
                 android:layout_width="wrap_content"
-                android:textColor="@color/black"
-                android:layout_gravity="center"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:textStyle="normal"
+                    android:id="@+id/text_location"
+                    android:textColor="@color/black"
+                    android:gravity="center"
+                    android:textSize="24sp"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"/>
+
+                <TextView
+                    android:id="@+id/text_temp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_gravity="center"
+                    android:textColor="@color/black"
+                    android:textAlignment="center"
+                    android:textSize="60sp" />
+
+                <TextView
+                    android:id="@+id/text_desc"
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/black"
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:textSize="18sp"/>
+
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_height="fill_parent"
+            android:layout_width="match_parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/weekly_recyclerview"
+                android:layout_width="match_parent"
+                android:padding="15dp"
                 android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:textSize="18sp"/>
-
-
+                android:background="@drawable/bg_standard_card_view"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="8dp" />
         </LinearLayout>
 
 
 
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/weekly_recyclerview"
-            android:layout_width="match_parent"
-            android:padding="15dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bg_standard_card_view"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="8dp" />
+
 
 
     </LinearLayout>
