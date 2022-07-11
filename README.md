@@ -44,6 +44,8 @@ Moshi Converter - A Converter that uses Moshi for serialization to and from JSON
 
 Coil-kt - An image loading library for Android backed by Kotlin Coroutines
 
+Places SDK for Android - to make the app location aware 
+
 
 # Architecture
 
