@@ -1,6 +1,5 @@
 package com.embassylegacy.weatherapp.ui.home
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -31,13 +30,7 @@ class HomeViewModel @Inject constructor(private val currentWeatherRepository: Cu
     private val _forecastLiveData = MutableLiveData<State<ForecastWeatherResponse>>()
     val forecastLiveData: LiveData<State<ForecastWeatherResponse>> = _forecastLiveData
 
-//    private val _forecastLiveData: MutableStateFlow<State<ForecastWeatherResponse>> = MutableStateFlow(State.loading())
-//    val forecastLiveData: StateFlow<State<ForecastWeatherResponse>> = _forecastLiveData
-
-
-
     fun getCurrentWeather(lat:String, lon : String, units:String) {
-        Log.d("buhle","getCurrentWeather in viewmodel")
         viewModelScope.launch {
             currentWeatherRepository.getCurrentWeatherEntry(lat,lon,units)
                 .onStart { _currentLiveData.value = State.loading() }
@@ -45,34 +38,13 @@ class HomeViewModel @Inject constructor(private val currentWeatherRepository: Cu
                 .collect { state -> _currentLiveData.value = state  }
         }
     }
-
-//
     fun getForecastWeather(lat:String, lon : String, units:String) {
-        Log.d("buhle"," getForecastWeather in viewmodel")
         viewModelScope.launch {
             currentWeatherRepository.getForecastWeatherEntry(lat,lon,units)
                 .onStart { _forecastLiveData.value = State.loading() }
                 .map { resource -> State.fromResource(resource)
                 }.collect { state -> _forecastLiveData.value = state}
-
-
         }
     }
 
-//    fun getForecastWeather(lat:String, lon : String, units:String) {
-//        Log.d("buhle","getForecastWeather in viewmodel")
-//        viewModelScope.launch {
-//            currentWeatherRepository.getForecastWeatherEntry(lat,lon,units)
-//                .map { resource -> State.fromResource(resource) }
-//                .collect { state ->  _forecastLiveData.value = state }
-//        }
-//    }
-
-//    fun getForecastWeather(lat:String, lon : String, units:String) {
-//        viewModelScope.launch {
-//            currentWeatherRepository.getForecastWeatherEntry(lat,lon,units)
-//                .map { resource -> State.fromResource(resource) }
-//                .collect { state -> _forecastLiveData.value = state }
-//        }
-//    }
 }
