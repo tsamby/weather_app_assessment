@@ -6,6 +6,7 @@ import android.animation.AnimatorListenerAdapter
 import android.content.pm.ApplicationInfo
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.View
@@ -169,7 +170,6 @@ class HomeFragment : Fragment() {
                         }
                         val temp = state.data.main?.tempMax?.let { it.roundToInt().toInt() }
                         binding.textTemp.text = (temp.toString() + "\u00B0")
-
 
                     }
                 }

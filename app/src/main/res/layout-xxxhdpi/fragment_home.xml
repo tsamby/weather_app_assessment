@@ -64,7 +64,7 @@
             <TextView
                 android:textStyle="normal"
                 android:id="@+id/text_location"
-                android:textColor="@color/grey"
+                android:textColor="@color/black"
                 android:gravity="center"
                 android:textSize="24sp"
                 android:layout_gravity="center"
@@ -80,7 +80,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:layout_gravity="center"
-                android:textColor="@color/grey"
+                android:textColor="@color/black"
                 android:textAlignment="center"
                 android:textSize="60sp" />
 
@@ -88,7 +88,7 @@
                 android:id="@+id/text_desc"
                 android:gravity="center"
                 android:layout_width="wrap_content"
-                android:textColor="@color/grey"
+                android:textColor="@color/black"
                 android:layout_gravity="center"
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
