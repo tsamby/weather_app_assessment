@@ -18,11 +18,22 @@ class LocationLiveData(context : Context) : LiveData<LocationDetails>() {
     @SuppressLint("MissingPermission")
     override fun onActive() {
         super.onActive()
-        fusedLocationClient.lastLocation.addOnSuccessListener {
-                location: Location  -> location.also {
-            setLocationData(it)
-        }
-        }
+//        fusedLocationClient.lastLocation.addOnSuccessListener {
+//                location: Location  -> location?.also {
+//            setLocationData(it)
+//        }
+//        }
+
+
+        fusedLocationClient.lastLocation
+            .addOnSuccessListener { location : Location? ->
+                if (location != null) {
+                    setLocationData(location)
+                }
+            }
+
+
+
         startLocationUpdates()
     }
 

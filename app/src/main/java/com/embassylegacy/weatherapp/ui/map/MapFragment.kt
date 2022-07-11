@@ -8,12 +8,16 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import androidx.lifecycle.observe
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.embassylegacy.weatherapp.R
+import com.embassylegacy.weatherapp.data.local.entity.LocationDetails
 import com.embassylegacy.weatherapp.databinding.FragmentMapBinding
 import com.embassylegacy.weatherapp.model.FavouriteLocation
+import com.embassylegacy.weatherapp.model.State
 import com.embassylegacy.weatherapp.ui.favourites.FavouriteLocationListAdapter
+import com.embassylegacy.weatherapp.ui.home.LocationViewModel
 import com.embassylegacy.weatherapp.ui.shared.SharedViewModel
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -31,9 +35,8 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 @AndroidEntryPoint
 class MapFragment : Fragment(), OnMapReadyCallback{
 
-    //https://stackoverflow.com/questions/34582370/how-can-i-show-current-location-on-a-google-map-on-android-marshmallow
-
     private val sharedViewModel: SharedViewModel by viewModels()
+    private val locationViewModel : LocationViewModel by viewModels()
     private var _binding: FragmentMapBinding? = null
     private val binding get() = _binding!!
     private var mMap: GoogleMap? = null
@@ -69,8 +72,13 @@ class MapFragment : Fragment(), OnMapReadyCallback{
             favouriteLocations?.let {
                 displayAllBookmarks(it)
             }
-
         }
+
+        locationViewModel.getLocationLiveData().observe(requireActivity(), Observer {
+            it ?:return@Observer
+            displayAllBookmarks(it)
+
+        })
     }
 
     private fun displayAllBookmarks(favouriteLocations: List<FavouriteLocation>) {
@@ -78,7 +86,13 @@ class MapFragment : Fragment(), OnMapReadyCallback{
             var location =LatLng(it.latitude, it.longitude)
             addPlaceMarker(location)
         }
-        Log.e("Marker", favouriteLocations.toString())
+    }
+
+    private fun displayAllBookmarks(locationDetails: LocationDetails) {
+
+            var location =LatLng(locationDetails.latitude.toDouble(), locationDetails.longitude.toDouble())
+            addPlaceMarker(location)
+
     }
 
     private fun addPlaceMarker(location:LatLng): Marker? {

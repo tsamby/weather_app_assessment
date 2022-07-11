@@ -41,7 +41,8 @@ class DefaultCurrentWeatherRepository @Inject constructor(
 
             override fun fetchFromLocal(): Flow<CurrentWeatherResponse> = currentWeatherDao.getCurrentWeather()
 
-            override suspend fun fetchFromRemote(): Response<CurrentWeatherResponse> = weatherApiService.getCurrentWeather(lat,lon, WeatherApiService.WEATHER_API_KEY,units)
+            //override suspend fun fetchFromRemote(): Response<CurrentWeatherResponse> = weatherApiService.getCurrentWeather(lat,lon, WeatherApiService.WEATHER_API_KEY,units)
+            override suspend fun fetchFromRemote(): Response<CurrentWeatherResponse> = weatherApiService.getCurrentWeather(lat,lon,units)
         }.asFlow()
     }
 
@@ -55,7 +56,8 @@ class DefaultCurrentWeatherRepository @Inject constructor(
 
             override fun fetchFromLocal(): Flow<ForecastWeatherResponse> = forecastWeatherDao.getForecastWeather()
 
-            override suspend fun fetchFromRemote(): Response<ForecastWeatherResponse> = weatherApiService.getForecastWeather(lat,lon, WeatherApiService.WEATHER_API_KEY,units )
+            //override suspend fun fetchFromRemote(): Response<ForecastWeatherResponse> = weatherApiService.getForecastWeather(lat,lon, WeatherApiService.WEATHER_API_KEY,units )
+            override suspend fun fetchFromRemote(): Response<ForecastWeatherResponse> = weatherApiService.getForecastWeather(lat,lon,units )
         }.asFlow()
     }
 
