@@ -109,6 +109,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/lowerLayout"
             android:layout_weight="1"
             android:layout_height="fill_parent"
             android:layout_width="match_parent">

@@ -3,8 +3,10 @@ package com.embassylegacy.weatherapp.ui.home
 import android.Manifest
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
+import android.annotation.SuppressLint
 import android.content.pm.ApplicationInfo
 import android.content.pm.PackageManager
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -155,6 +157,7 @@ class HomeFragment : Fragment() {
 
    }
 
+    @SuppressLint("ResourceAsColor")
     private fun observeCurrentAndForecastWeather() {
 
         homeViewModel.currentLiveData.observe(this) { state ->
@@ -166,7 +169,7 @@ class HomeFragment : Fragment() {
                         binding.textLocation.text = state.data.name.toString()
                         binding.textDesc.text = state.data.weather?.get(0)?.description.toString()
                         if(state.data.weather?.get(0)?.description.toString().equals("clear sky")){
-                            binding.upperLayout?.setBackgroundResource(R.drawable.forest_sunny);
+                            binding.upperLayout?.setBackgroundResource(R.drawable.forest_sunny)
                         }
                         val temp = state.data.main?.tempMax?.let { it.roundToInt().toInt() }
                         binding.textTemp.text = (temp.toString() + "\u00B0")
