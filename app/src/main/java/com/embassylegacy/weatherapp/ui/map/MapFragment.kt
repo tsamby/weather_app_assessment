@@ -31,6 +31,8 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 @AndroidEntryPoint
 class MapFragment : Fragment(), OnMapReadyCallback{
 
+    //https://stackoverflow.com/questions/34582370/how-can-i-show-current-location-on-a-google-map-on-android-marshmallow
+
     private val sharedViewModel: SharedViewModel by viewModels()
     private var _binding: FragmentMapBinding? = null
     private val binding get() = _binding!!

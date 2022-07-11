@@ -6,8 +6,8 @@ import javax.annotation.Nullable
 
 @Entity(tableName = "favourites")
 data class FavouriteLocation (
-    @PrimaryKey
     val id : String,
+    @PrimaryKey
     val name : String,
     val address : String,
     val longitude:Double,

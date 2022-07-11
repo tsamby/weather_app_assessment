@@ -173,6 +173,8 @@ class HomeFragment : Fragment() {
                         }
                         val temp = state.data.main?.tempMax?.let { it.roundToInt().toInt() }
                         binding.textTemp.text = (temp.toString() + "\u00B0")
+
+
                     }
                 }
                 is State.Error -> {
