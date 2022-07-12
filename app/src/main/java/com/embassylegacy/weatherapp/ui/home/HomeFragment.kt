@@ -220,17 +220,17 @@ class HomeFragment : Fragment() {
 
 
     private fun updateTheme(description:String){
-        if(description == "clear sky"){
+        if(description == "sunny" || description == "clear sky"){
             binding.upperLayout?.setBackgroundResource(R.drawable.forest_sunny)
             binding.swipeRefreshLayout.setBackgroundColor(Color.parseColor("#47AB2F"));
         }
-        if(description == "rainy"){
-            binding.upperLayout?.setBackgroundResource(R.drawable.forest_sunny)
-            binding.swipeRefreshLayout.setBackgroundColor(Color.parseColor("#47AB2F"));
+        if(description == "rainy" || description == "moderate rain"){
+            binding.upperLayout?.setBackgroundResource(R.drawable.forest_rainy)
+            binding.swipeRefreshLayout.setBackgroundColor(Color.parseColor("#57575D"));
         }
-        if(description == "clear sky"){
-            binding.upperLayout?.setBackgroundResource(R.drawable.forest_sunny)
-            binding.swipeRefreshLayout.setBackgroundColor(Color.parseColor("#47AB2F"));
+        if(description == "cloudy" || description == "broken clouds" || description == "few clouds" ){
+            binding.upperLayout?.setBackgroundResource(R.drawable.forest_cloudy)
+            binding.swipeRefreshLayout.setBackgroundColor(Color.parseColor("#54717A"));
         }
     }
 
