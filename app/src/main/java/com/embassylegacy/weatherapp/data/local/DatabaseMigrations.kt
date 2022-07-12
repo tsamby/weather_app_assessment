@@ -5,7 +5,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 import com.embassylegacy.weatherapp.model.CurrentWeatherResponse
 
 object DatabaseMigrations {
-    const val DB_VERSION = 31
+    const val DB_VERSION = 32
 
     val MIGRATIONS: Array<Migration>
         get() = arrayOf<Migration>(

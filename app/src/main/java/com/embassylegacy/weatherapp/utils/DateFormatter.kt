@@ -59,4 +59,5 @@ object DateFormatter {
         val date = Date(time!!)
         return getMonth(date) + " " + getDay(date) + ", " + getTime(date)
     }
+
 }

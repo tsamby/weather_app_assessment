@@ -168,12 +168,12 @@ class HomeFragment : Fragment() {
                         showLoading(false)
                         binding.textLocation.text = state.data.name.toString()
                         binding.textDesc.text = state.data.weather?.get(0)?.description.toString()
-                        if(state.data.weather?.get(0)?.description.toString().equals("clear sky")){
-                            binding.upperLayout?.setBackgroundResource(R.drawable.forest_sunny)
-                        }
+                        updateTheme(state.data.weather?.get(0)?.description.toString())
                         val temp = state.data.main?.tempMax?.let { it.roundToInt().toInt() }
                         binding.textTemp.text = (temp.toString() + "\u00B0")
 
+                        val lastUpDate = state.data.updatedAt
+                        binding.textViewLastUpdate?.text = "Last Updated: "+DateFormatter.getTimeSinceLastUpdate(lastUpDate)
                     }
                 }
                 is State.Error -> {
@@ -219,6 +219,20 @@ class HomeFragment : Fragment() {
     }
 
 
+    private fun updateTheme(description:String){
+        if(description == "clear sky"){
+            binding.upperLayout?.setBackgroundResource(R.drawable.forest_sunny)
+            binding.swipeRefreshLayout.setBackgroundColor(Color.parseColor("#47AB2F"));
+        }
+        if(description == "rainy"){
+            binding.upperLayout?.setBackgroundResource(R.drawable.forest_sunny)
+            binding.swipeRefreshLayout.setBackgroundColor(Color.parseColor("#47AB2F"));
+        }
+        if(description == "clear sky"){
+            binding.upperLayout?.setBackgroundResource(R.drawable.forest_sunny)
+            binding.swipeRefreshLayout.setBackgroundColor(Color.parseColor("#47AB2F"));
+        }
+    }
 
 
     /**

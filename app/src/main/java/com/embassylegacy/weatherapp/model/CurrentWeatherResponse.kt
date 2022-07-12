@@ -27,13 +27,11 @@ data class CurrentWeatherResponse(
     val id: Int?,
     val main: Main?,
     val name: String?,
-   // val rain: Rain?,
-   // val snow: Snow?,
     val sys: Sys?,
     val timezone: Int?,
     val visibility: Int?,
     val weather: List<Weather>?,
-    //val wind: Wind?
+    val updatedAt: Long = System.currentTimeMillis()
 ){
    companion object{
        const val TABLE_NAME = "current_weather"
