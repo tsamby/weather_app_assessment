@@ -10,6 +10,8 @@ The Weather data is always loaded from a local database. Remote and local data i
 
 The app is offline-capable
 
+![WhatsApp Image 2022-07-12 at 4 46 09 PM](https://user-images.githubusercontent.com/12032432/178560883-28384a81-47ba-43af-b3a1-9436869cc0ba.jpg)
+
 # Tools
 
 
