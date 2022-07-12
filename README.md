@@ -2,6 +2,13 @@
 
 This app is built to demonstrate the modern design of an Android application
 
+#Instructions
+You need a Google Maps API Key to run this project. 
+
+The API key is to be stored in the local.properties file as shown below
+
+MAPS_API_KEY = "YOUR_MAPS_API_KEY"
+
 # About 
 
 We load Weather data from API and store it in a Room database (persistence storage)
