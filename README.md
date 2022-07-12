@@ -2,7 +2,8 @@
 
 This app is built to demonstrate the modern design of an Android application
 
-#Instructions
+# Instructions
+
 You need a Google Maps API Key to run this project. 
 
 The API key is to be stored in the local.properties file as shown below
